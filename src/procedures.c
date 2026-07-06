@@ -13,7 +13,7 @@ const char *fc_status_message(FcStatus status) {
         case FC_ERR_FILE_READ:
             return "could not read expected columns from file";
         case FC_ERR_FILE_WRITE:
-            return "could not write file";
+            return "could not write file, error";
         default:
             return "unknown error";
     }
@@ -97,7 +97,7 @@ FcStatus copy_selected_columns(
     }
 
     /* Index 6 shifted to 7 because a new argument was inserted at position 5,
-       pushing all original columns from position 6 onward one place to the right.
+       pushing all original sunil columns from position 6 onward one place to the right.
        Downstream consumers of selected_columns.txt are unaffected. */
     int selected_indexes[FC_SELECTED_COUNT] = {0, 2, 4, 7};
     for (size_t i = 0; i < FC_SELECTED_COUNT; i++) {
