@@ -3,3 +3,6 @@ data/*.txt
 *.exe
 *.o
 
+# Confluence sync credentials — never commit this
+.confluence.env
+

@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Sync HIGH_LEVEL_DESIGN.md to Confluence",
+      "trigger": "PostFileSave",
+      "description": "Whenever HIGH_LEVEL_DESIGN.md is saved, push its content to the Confluence page (ID 65545) via the REST API.",
+      "matcher": "HIGH_LEVEL_DESIGN\\\\.md$",
+      "action": {
+        "type": "command",
+        "command": "powershell -ExecutionPolicy Bypass -File \"scripts\\sync_to_confluence.ps1\" -FilePath \"${file}\"",
+        "timeout": 30
+      }
+    }
+  ]
+}
